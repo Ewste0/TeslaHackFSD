@@ -17,6 +17,29 @@ are authorized to service.
 
 This independent project is not affiliated with Tesla or Tigard.
 
+## How is work? 
+you need to build custom valhalla maps with admin iso code US (for FSD)
+you can do that with this repository https://github.com/valhalla/valhalla
+https://gis-ops.com/valhalla-part-1-how-to-install-on-ubuntu/
+
+```
+git clone ttps://github.com/valhalla/valhalla
+cd valhalla
+```
+Tesla use a old valhalla version 2.4.3 so we downgrade it after clone 
+```
+git reset --hard cd178e6
+```
+sudo apt-get liblua5.2-dev you also need missing package 
+everything other by the instruction in https://gis-ops.com/valhalla-part-1-how-to-install-on-ubuntu/
+
+## FSD hack ;) 
+
+```
+sqlite3 admins.sqlite 'UPDATE admins SET admin_level = 2 WHERE admin_level = 4 AND parent_admin is NULL'
+sqlite3 admins.sqlite "UPDATE admins SET iso_code = 'US' WHERE admin_level = 2;"
+```
+
 ## Requirements
 
 - Tigard or another compatible FT2232H adapter (`VID 0403`, `PID 6010`).
