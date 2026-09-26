@@ -33,6 +33,8 @@ git reset --hard cd178e6
 sudo apt-get liblua5.2-dev you also need missing package 
 everything other by the instruction in https://gis-ops.com/valhalla-part-1-how-to-install-on-ubuntu/
 
+after building of maps you can load it in car with this tigard tool
+
 ## FSD hack ;) 
 
 ```
